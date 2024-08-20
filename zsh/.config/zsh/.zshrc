@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -11,7 +11,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source $HOME/.zsh_aliases
+source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
 # enable color support of ls and also add handy aliases
   if [ -x /usr/bin/dircolors ]; then
@@ -29,3 +29,11 @@ source $HOME/.zsh_aliases
     alias la='ls -A'
     alias l='ls -CF'
 
+#autoload -U colors && colors
+#PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+#PROMPT+=' $(git_prompt_info)'
+#
+#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
