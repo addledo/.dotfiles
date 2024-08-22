@@ -1,5 +1,4 @@
 alias vim='nvim'
-alias ll='ls -la'
 
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
 alias v='xclip -o'
