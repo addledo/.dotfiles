@@ -1,9 +1,10 @@
-set scrolloff=8
+set scrolloff=13
 set number
 set rnu
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
+set nohls
 
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
