@@ -5,4 +5,5 @@ alias v='xclip -o'
 
 bindkey ^h "history | fzf"
 bindkey ^p up-line-or-search
+bindkey ^n down-line-or-search
 bindkey -s ^f "tmux-sessioniser\n"
