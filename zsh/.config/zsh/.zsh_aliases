@@ -1,6 +1,7 @@
 alias sudo='sudo '
 alias zconf='nvim ~/.config/zsh/.zshrc'
 alias zalias='nvim ~/.config/zsh/.zsh_aliases'
+alias nconf='nvim ~/.config/nvim/init.lua'
 
 alias lock='i3lock -ti ~/Pictures/blue_arch_nowatermark.png'
 
