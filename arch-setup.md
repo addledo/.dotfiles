@@ -15,3 +15,7 @@
 **Audio Setup**
     Install packages: pipewire-jack pipewire-alsa pipewire-pulse qjackctl
         Replace jack? yes
+
+**Lid Close Behaviour**
+    /etc/systemd/logind.conf
+        HandleLidSwitch=ignore

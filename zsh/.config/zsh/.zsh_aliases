@@ -1,4 +1,10 @@
-alias vim='nvim'
+alias sudo='sudo '
+alias zconf='nvim ~/.config/zsh/.zshrc'
+alias zalias='nvim ~/.config/zsh/.zsh_aliases'
+
+alias lock='i3lock -ti ~/Pictures/blue_arch_nowatermark.png'
+
+alias vi='nvim'
 
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
 alias v='xclip -o'

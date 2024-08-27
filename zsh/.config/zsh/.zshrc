@@ -1,3 +1,6 @@
+#Makes Neovim sudo editor. Use command 'sudoedit'
+export SUDO_EDITOR="nvim"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
