@@ -19,3 +19,10 @@
 **Lid Close Behaviour**
     /etc/systemd/logind.conf
         HandleLidSwitch=ignore
+
+**NVIDIA Info**
+    nvidia-smi
+
+**i3 Tray**
+    https://i3wm.org/docs/userguide.html#_tray_output
+    
