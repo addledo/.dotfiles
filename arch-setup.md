@@ -23,6 +23,15 @@
 **NVIDIA Info**
     nvidia-smi
 
+**i3 Background**
+    Resize image -
+         convert <filename> -resize <resolution>! outputfile.png
+            ! forces resolution ignoring aspect ratio
+            (requires imagemagick)
+    Get screen resolution: xrandr
+    Combined:
+        convert <filename> -resize `xrandr | grep "*" | awk '{ print $1 }' | head -n 1`! outputfile.png
+
 **i3 Tray**
     https://i3wm.org/docs/userguide.html#_tray_output
     
