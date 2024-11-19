@@ -26,3 +26,7 @@
 **i3 Tray**
     https://i3wm.org/docs/userguide.html#_tray_output
     
+**Brightness setup**
+    Add user to video group:
+        sudo usermod -aG video $USER
+    Check groups: groups $USER
