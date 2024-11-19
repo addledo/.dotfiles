@@ -199,8 +199,7 @@ bar {
 }
 
 #Display wallpaper
-#exec_always feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png
-exec_always feh --bg-fill ~/Pictures/blue_arch_nowatermark.png
+exec_always feh --bg-fill /home/jonty/Pictures/Thousand-Sunny-Sunrise.png
 
 #Bind brightness keys
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
