@@ -36,7 +36,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -uti /home/jonty/P
 exec --no-startup-id nm-applet
 
 # Start redshift
-exec --no-startup-id redshift -l 54.75844:-2.69531
+#exec --no-startup-id redshift -l 54.75844:-2.69531
 
 # Start battery warning script
 exec --no-startup-id ~/.config/i3/i3-battery-popup -n -L 30% -I 5% -t 100s
