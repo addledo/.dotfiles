@@ -39,3 +39,10 @@
     Add user to video group:
         sudo usermod -aG video $USER
     Check groups: groups $USER
+
+**Manually installed packages**
+    Put in /opt
+    Symlink to ~/.local/bin
+    ln -s source target
+
+
