@@ -11,7 +11,7 @@ general {
         interval = 5
 }
 
-order += "ipv6"
+#order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -22,32 +22,33 @@ order += "tztime local"
 order += "volume master"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "%essid  (%quality)  - %ip "
         format_down = "W: down"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = " E: %ip (%speed) "
+        format_down = " Eth: _ "
 }
 
 battery all {
-        format = "%status %percentage"
-        low_threshold = 15
+        format = " %status %percentage "
+        low_threshold = 20
         threshold_type = "percent"
         last_full_capacity = true
         hide_seconds = true
         integer_battery_capacity = true
-        status_chr = "CHG"
-        status_bat = "BAT"
+        status_chr = "⚡"
+        status_full = "⚡🔋"
+        status_bat = "🔋"
 }
 
 disk "/" {
-        format = "DISK %avail"
+        format = " DISK %avail "
 }
 
 load {
-        format = "%1min"
+        format = " %1min "
 }
 
 memory {
