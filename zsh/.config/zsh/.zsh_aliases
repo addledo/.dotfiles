@@ -4,7 +4,7 @@ alias zalias='nvim ~/.config/zsh/.zsh_aliases'
 alias nconf='nvim ~/.config/nvim/init.lua'
 alias i3conf='nvim ~/.config/i3/config'
 
-alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen.png'
+alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
 
 alias vi='nvim'
 
