@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $lockcmd i3lock -uti /home/jonty/Pictures/Lockscreen
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -29,7 +30,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -uti /home/jonty/Pictures/Lockscreen.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- &lockcmd --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -52,7 +53,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 #Lock key
-bindsym $mod+p exec i3lock -uti /home/jonty/Pictures/Lockscreen.png
+bindsym $mod+p exec $lockcmd
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -193,13 +194,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-
         #Disable clicking workspaces
         bindsym button1 nop
+        #workspace_buttons no
 }
 
 #Display wallpaper
-exec_always feh --bg-fill /home/jonty/Pictures/Thousand-Sunny-Sunrise.png
+exec_always feh --bg-fill /home/jonty/Pictures/Wallpaper
 
 #Bind brightness keys
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
