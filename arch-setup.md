@@ -45,4 +45,5 @@
     Symlink to ~/.local/bin
     ln -s source target
 
-
+**Snipping tool**
+    Use shutter
