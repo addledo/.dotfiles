@@ -3,6 +3,7 @@ alias zconf='nvim ~/.config/zsh/.zshrc'
 alias zalias='nvim ~/.config/zsh/.zsh_aliases'
 alias nconf='nvim ~/.config/nvim/init.lua'
 alias i3conf='nvim ~/.config/i3/config'
+alias lr='libreoffice'
 
 alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
 
@@ -10,6 +11,9 @@ alias vi='nvim'
 
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
 alias v='xclip -o'
+
+#Swap alt and win keys
+alias winalt='setxkbmap -option altwin:swap_lalt_lwin'
 
 bindkey ^h "history | fzf"
 bindkey ^p up-line-or-search

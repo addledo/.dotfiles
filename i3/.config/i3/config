@@ -9,7 +9,14 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+#Swap win and alt keys
+exec setxkbmap -option altwin:swap_lalt_lwin
+
+#Enable compose key on pause/break
+exec setxkbmap -option compose:paus
+
+set $mod mod4
+
 set $lockcmd i3lock -uti /home/jonty/Pictures/Lockscreen
 
 # Font for window titles. Will also be used by the bar unless a different font

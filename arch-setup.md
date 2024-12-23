@@ -47,3 +47,8 @@
 
 **Snipping tool**
     Use shutter
+
+**Switching mod keys**
+    Use .xmodmap in ~
+    xmodmap ~/.xmodmap (sources)
+    setxkbmap  (resets)
