@@ -45,10 +45,7 @@
     Symlink to ~/.local/bin  
     ln -s source target  
   
-**Snipping tool**  
-    Use shutter  
-  
-**Switching mod keys**  
-    Use .xmodmap in ~  
-    xmodmap ~/.xmodmap (sources)  
-    setxkbmap  (resets)  
+**Switching win/alt keys and enabling compose key**  
+    Add to /etc/default/keyboard
+        XKBOPTIONS="altwin:swap_lalt_lwin, compose:paus"
+    (Sets compose key to pause/break)
