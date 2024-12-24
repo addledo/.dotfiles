@@ -1,28 +1,35 @@
 alias sudo='sudo '
+alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
+
+#Configs
 alias zconf='nvim ~/.config/zsh/.zshrc'
 alias zalias='nvim ~/.config/zsh/.zsh_aliases'
 alias nconf='nvim ~/.config/nvim/init.lua'
 alias i3conf='nvim ~/.config/i3/config'
 alias i3sconf='nvim ~/.config/i3status/config'
+alias alconf='nvim ~/.config/alacritty/alacritty.toml'
+
+#Apps
 alias lr='libreoffice'
-
-alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
-
 alias vi='nvim'
 
+#Clipboard
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
 alias v='xclip -o'
 
 #Swap alt and win keys
 alias winalt='setxkbmap -option altwin:swap_lalt_lwin'
 
+#Workflow
 bindkey ^h "history | fzf"
 bindkey ^p up-line-or-search
 bindkey ^n down-line-or-search
 bindkey -s ^f "tmux-sessioniser\n"
 
-
 #Git
 alias stat='git status'
 alias g.='git add .'
 alias gm='git commit -m'
+
+alias emu='basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed '\''s/ .*$//'\'')'
+#Escaping single quotes in above - '\'' = closing quote, escaped quote, opening quote
