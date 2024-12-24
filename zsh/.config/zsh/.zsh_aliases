@@ -19,3 +19,9 @@ bindkey ^h "history | fzf"
 bindkey ^p up-line-or-search
 bindkey ^n down-line-or-search
 bindkey -s ^f "tmux-sessioniser\n"
+
+
+#Git
+alias stat='git status'
+alias g.='git add .'
+alias gm='git commit -m'
