@@ -21,9 +21,7 @@
 import = [ "~/.config/alacritty/tokyo-night-storm.toml" ] # or tokyo-night-storm.toml
 
 [window]
-
-opacity = 0.9
-
+opacity = 1
 padding.x = 5
 padding.y = 10
 
