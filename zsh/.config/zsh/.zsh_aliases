@@ -16,6 +16,7 @@ alias tconf='nvim ~/.config/tmux/tmux.conf'
 #Apps
 alias lr='libreoffice'
 alias vi='nvim'
+alias ff='firefox'
 
 #Clipboard
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
@@ -31,7 +32,7 @@ bindkey ^n down-line-or-search
 bindkey -s ^f "tmux-sessioniser\n"
 
 #Git
-alias stat='git status'
+alias gs='git status'
 alias g.='git add .'
 alias gm='git commit -m'
 
