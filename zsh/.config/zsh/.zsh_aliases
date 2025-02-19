@@ -18,12 +18,22 @@ alias lr='libreoffice'
 alias vi='nvim'
 alias ff='firefox'
 
+#Chester VPN
+alias cvpn='sudo openvpn ~/Chester/profile-5420.ovpn'
+
 #Clipboard
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
 alias v='xclip -o'
 
 #Swap alt and win keys
 alias winalt='setxkbmap -option altwin:swap_lalt_lwin'
+
+#Set keyboard repeat rate
+alias kr='xset r rate 320 50'
+
+#Set keyboard backlight
+alias blon='echo 3 | sudo tee /sys/class/leds/asus\:\:kbd_backlight/brightness'
+alias bloff='echo 0 | sudo tee /sys/class/leds/asus\:\:kbd_backlight/brightness'
 
 #Workflow
 bindkey ^h "history | fzf"
@@ -35,6 +45,7 @@ bindkey -s ^f "tmux-sessioniser\n"
 alias gs='git status'
 alias g.='git add .'
 alias gm='git commit -m'
+alias yeet='git push'
 
 alias emu='basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed '\''s/ .*$//'\'')'
 #Escaping single quotes in above - '\'' = closing quote, escaped quote, opening quote
