@@ -19,7 +19,7 @@ alias vi='nvim'
 alias ff='firefox'
 
 #Chester VPN
-alias cvpn='sudo openvpn ~/Chester/profile-5420.ovpn'
+alias cvpn='sudo openvpn ~/Chester/vpn-profile.ovpn'
 
 #Clipboard
 alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
