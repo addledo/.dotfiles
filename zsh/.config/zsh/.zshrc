@@ -1,5 +1,6 @@
 #Makes Neovim sudo editor. Use command 'sudoedit'
 export SUDO_EDITOR="nvim"
+export PATH="~/.local/bin/:$PATH"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -34,3 +35,7 @@ source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
