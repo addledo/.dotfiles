@@ -10,8 +10,11 @@ alias zalias='nvim ~/.config/zsh/.zsh_aliases'
 alias nconf='nvim ~/.config/nvim/init.lua'
 alias i3conf='nvim ~/.config/i3/config'
 alias i3sconf='nvim ~/.config/i3status/config'
+alias hconf='nvim ~/.config/hypr/hyprland.conf'
 alias alconf='nvim ~/.config/alacritty/alacritty.toml'
 alias tconf='nvim ~/.config/tmux/tmux.conf'
+alias ansconf='nvim ~/ansible/install_packages.yml'
+alias keyconf='sudoedit /etc/keyd/default.conf'
 
 #Apps
 alias lr='libreoffice'
