@@ -10,12 +10,14 @@ alias zalias='nvim ~/.config/zsh/.zsh_aliases'
 alias nconf='nvim ~/.config/nvim/init.lua'
 alias i3conf='nvim ~/.config/i3/config'
 alias i3sconf='nvim ~/.config/i3status/config'
-alias hconf='nvim ~/.config/hypr/hyprland.conf'
-alias hpconf='nvim ~/.config/hypr/hyprpaper.conf'
 alias alconf='nvim ~/.config/alacritty/alacritty.toml'
 alias tconf='nvim ~/.config/tmux/tmux.conf'
 alias ansconf='nvim ~/ansible/install_packages.yml'
 alias keyconf='sudoedit /etc/keyd/default.conf'
+#Hyprland
+alias hconf='nvim ~/.config/hypr/hyprland.conf'
+alias hpconf='nvim ~/.config/hypr/hyprpaper.conf'
+alias barconf='nvim ~/.config/waybar/style.css'
 
 #Apps
 alias lr='libreoffice'
@@ -26,8 +28,10 @@ alias ff='firefox'
 alias cvpn='sudo openvpn ~/Chester/vpn-profile.ovpn'
 
 #Clipboard
-alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
-alias v='xclip -o'
+alias c='wl-copy -n'
+alias v='wl-paste'
+#alias c='xargs echo -n | xclip -i -sel p -f | xclip -i -sel c'
+#alias v='xclip -o'
 
 #Swap alt and win keys
 alias winalt='setxkbmap -option altwin:swap_lalt_lwin'
