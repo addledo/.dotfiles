@@ -1,6 +1,16 @@
 #Makes Neovim sudo editor. Use command 'sudoedit'
 export SUDO_EDITOR="nvim"
-export PATH="~/.local/bin/:$PATH"
+
+# Have move this to /etc/profile :
+#export PATH="/home/jonty/.local/bin:$PATH"
+
+export PATH="/home/jonty/development/flutter/bin:$PATH"
+
+# For Android/Flutter dev:
+export JAVA_HOME="/home/jonty/.jdks/corretto-17.0.14/"
+export ANDROID_HOME="/home/jonty/Android/Sdk/"
+export ANDROID_AVD_HOME="/home/jonty/.config/.android/avd"
+export PATH="$ANDROID_HOME/emulator/:$PATH"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
