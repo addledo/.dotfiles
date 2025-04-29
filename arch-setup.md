@@ -15,6 +15,10 @@
 **Audio Setup**  
     Install packages: pipewire-jack pipewire-alsa pipewire-pulse qjackctl  
         Replace jack? yes  
+
+**Bluetooth Setup**
+    Install blueman - this also install bluez
+    systemctl enable blueooth.service
   
 **Lid Close Behaviour**  
     /etc/systemd/logind.conf  
