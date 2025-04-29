@@ -49,3 +49,9 @@
     Add to /etc/default/keyboard
         XKBOPTIONS="altwin:swap_lalt_lwin, compose:paus"
     (Sets compose key to pause/break)
+
+**Set default browser**
+    Run:
+    xdg-settings set default-web-browser firefox.desktop
+    View with:
+    xdg-settings get default-web-browser
