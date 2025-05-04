@@ -5,6 +5,8 @@ export SUDO_EDITOR="nvim"
 #export PATH="/home/jonty/.local/bin:$PATH"
 
 export PATH="/home/jonty/development/flutter/bin:$PATH"
+#export PATH="/home/jonty/.dotnet:$PATH"
+#export PATH="/home/jonty/.dotnet/tools:$PATH"
 
 # For Android/Flutter dev:
 export JAVA_HOME="/home/jonty/.jdks/corretto-17.0.14/"
