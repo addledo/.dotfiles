@@ -4,8 +4,9 @@ alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
 alias notes='nvim ~/Documents/Notes/'
 alias tks='tmux kill-server'
 
+alias rn='ranger'
 #Start ranger so it exits in new directory
-alias rn='. ranger'
+alias rnn='. ranger'
 
 #Configs
 alias zconf='nvim ~/.config/zsh/.zshrc'
