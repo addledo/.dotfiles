@@ -4,6 +4,7 @@ export SUDO_EDITOR="nvim"
 # Have move this to /etc/profile :
 #export PATH="/home/jonty/.local/bin:$PATH"
 
+export PATH="/home/jonty/.local/scripts/:$PATH"
 export PATH="/home/jonty/development/flutter/bin:$PATH"
 #export PATH="/home/jonty/.dotnet:$PATH"
 export PATH="/home/jonty/.dotnet/tools:$PATH"
@@ -13,6 +14,18 @@ export JAVA_HOME="/home/jonty/.jdks/corretto-17.0.14/"
 export ANDROID_HOME="/home/jonty/Android/Sdk/"
 export ANDROID_AVD_HOME="/home/jonty/.config/.android/avd"
 export PATH="$ANDROID_HOME/emulator/:$PATH"
+
+#Workflow
+source /usr/share/fzf/key-bindings.zsh
+bindkey ^p up-line-or-search
+bindkey ^n down-line-or-search
+
+# TMUX Sessioniser
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\eh' "tmux-sessionizer -s 0\n"
+bindkey -s '\et' "tmux-sessionizer -s 1\n"
+bindkey -s '\en' "tmux-sessionizer -s 2\n"
+bindkey -s '\es' "tmux-sessionizer -s 3\n"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -47,7 +60,3 @@ source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
-#. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"

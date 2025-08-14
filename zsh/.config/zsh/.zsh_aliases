@@ -47,12 +47,6 @@ alias kr='xset r rate 320 50'
 alias blon='echo 3 | sudo tee /sys/class/leds/asus\:\:kbd_backlight/brightness'
 alias bloff='echo 0 | sudo tee /sys/class/leds/asus\:\:kbd_backlight/brightness'
 
-#Workflow
-bindkey ^h "history | fzf"
-bindkey ^p up-line-or-search
-bindkey ^n down-line-or-search
-bindkey -s ^f "tmux-sessioniser\n"
-
 #Git
 alias gs='git status'
 alias g.='git add .'
