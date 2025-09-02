@@ -1,9 +1,0 @@
-Install sddm with pacman
-Install sddm-astronaut-theme from AUR
-
-Init with instructions on GiHub
-
-Change theme in /usr/share/sddm/themes/sddm-astronaut-theme/
-Edit: metadata.desktop
-
-Themes are listed in ./Themes
