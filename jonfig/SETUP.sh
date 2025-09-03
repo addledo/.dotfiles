@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
 
-cp -f ./tmux-sessionizer.conf 	~/.config/tmux-sessionizer/tmux-sessionizer.conf
-cp -f ./tmux-sessionizer	~/.local/scripts/tmux-sessionizer
+mkdir -p ~/.config/ && cp -f ./tmux-sessionizer.conf $_
+mkdir -p ~/.local/scripts/ && cp -f ./tmux-sessionizer $_
