@@ -1,7 +1,10 @@
 #Makes Neovim sudo editor. Use command 'sudoedit'
 export SUDO_EDITOR="nvim"
 
-# Have move this to /etc/profile :
+# Aliases
+source $XDG_CONFIG_HOME/zsh/.zsh_aliases
+
+# Moved to /etc/profile :
 #export PATH="/home/jonty/.local/bin:$PATH"
 
 export PATH="/home/jonty/.local/scripts/:$PATH"
@@ -20,27 +23,43 @@ source /usr/share/fzf/key-bindings.zsh
 bindkey ^p up-line-or-search
 bindkey ^n down-line-or-search
 
-# TMUX Sessioniser
-bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s '\eh' "tmux-sessionizer -s 0\n"
-bindkey -s '\et' "tmux-sessionizer -s 1\n"
-bindkey -s '\en' "tmux-sessionizer -s 2\n"
-bindkey -s '\es' "tmux-sessionizer -s 3\n"
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -v
-# End of lines configured by zsh-newuser-install
+
+
+#---------------  AUTOCOMPLETE   ---------------------
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jonty/.zshrc'
 
+# Autocomplete to include hidden files if nothing else matches
+zstyle ':completion:*' file-patterns '*(D):hidden-files' '*'
+
+# Enable autocompletion (includes git branch completion)
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+#---------------   x AUTOCOMPLETE   ---------------------
 
-source $XDG_CONFIG_HOME/zsh/.zsh_aliases
+
+
+# Make git works on windows fs
+git() {
+  if pwd | grep -q "^/mnt/c"; then
+    git.exe "$@"
+  else
+    /usr/bin/git "$@"
+  fi
+}
+compdef _git git
+
+
+
+
+# COLOURS
+export LS_COLORS=$LS_COLORS:'ow=30;42:'
 
 # enable color support of ls and also add handy aliases
   if [ -x /usr/bin/dircolors ]; then
