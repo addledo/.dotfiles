@@ -19,6 +19,7 @@ packages=(
   ninja # for building neovim
   noto-fonts-emoji
   openvpn
+  otf-font-awesome # waybar icons
   pavucontrol
   pipewire-alsa
   pipewire-jack
