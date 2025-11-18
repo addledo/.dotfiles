@@ -3,11 +3,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "JetBrainsMono Nerd Font Mono", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 window#waybar {
-    background-color: alpha(@base, 0.7);
+    background-color: alpha(@base, 0.9);
     /*border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
     transition-property: background-color;
@@ -125,6 +125,7 @@ button:hover {
 
 #battery.charging, #battery.plugged {
     color: @text;
+    background-color: #158E4A;
 }
 
 @keyframes blink {
