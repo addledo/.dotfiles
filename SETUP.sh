@@ -2,11 +2,18 @@
 
 #./install.sh
 
-# mkdir -p ~/.config/tmux-sessionizer/ && cp -f ./tmux-sessionizer.conf $_
-# mkdir -p ~/.local/scripts/ && cp -f ./tmux-sessionizer $_
+echo "Setup tmux sessionizer"
+pushd tmux > /dev/null
+  ./tmux-setup.sh
+popd > /dev/null
  
-dirs=(wezterm wofi)
+dirs=(
+  wezterm
+  wofi
+  waybar
+  tmux
+)
 
-cp -R "${dirs[@]}" ~/.config
+# cp -R "${dirs[@]}" ~/.config
 
 #mkdir -p ~/.config/wezterm/ && cp -f ./-sessionizer $_
