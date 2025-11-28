@@ -1,4 +1,6 @@
 packages=(
+  # zathura
+  # zathura-pdf-mupdf
   #neofetch
   base-devel
   brightnessctl
@@ -16,6 +18,8 @@ packages=(
   imagemagick
   libreoffice
   make
+  network-manager-applet
+  networkmanager
   ninja # for building neovim
   noto-fonts-emoji
   openvpn
@@ -30,12 +34,11 @@ packages=(
   speedtest-cli
   starship
   tealdeer
+  tmux
   tree
   ttf-jetbrains-mono-nerd
   unzip
   veracrypt
-  zathura
-  zathura-pdf-mupdf
   zoxide
 )
 
