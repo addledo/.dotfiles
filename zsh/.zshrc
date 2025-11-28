@@ -30,7 +30,7 @@ SAVEHIST=10000
 bindkey -v
 
 
-#---------------  AUTOCOMPLETE   ---------------------
+#---------------    AUTOCOMPLETE   ---------------------
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jonty/.zshrc'
 
@@ -41,10 +41,11 @@ zstyle ':completion:*' file-patterns '*(D):hidden-files' '*'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-#---------------   x AUTOCOMPLETE   ---------------------
+#<<<------------     AUTOCOMPLETE   ---------------------
 
 
 
+#------------------    FUNCTIONS    ---------------------
 # Make git works on windows fs
 git() {
   if pwd | grep -q "^/mnt/c"; then
@@ -64,6 +65,13 @@ function y() {
   rm -f -- "$tmp"
 }
 
+function dfiles() {
+  pushd ~/.dotfiles
+  ./copy-dotfiles.sh
+  popd
+}
+
+#<<<---------------    FUNCTIONS    ---------------------
 
 
 # COLOURS
