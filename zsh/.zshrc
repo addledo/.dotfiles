@@ -71,6 +71,10 @@ function dfiles() {
   popd
 }
 
+function hr() {
+  pkill hyprpaper
+  hyprpaper & disown
+}
 #<<<---------------    FUNCTIONS    ---------------------
 
 
