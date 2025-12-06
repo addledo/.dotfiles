@@ -99,3 +99,6 @@ export LS_COLORS=$LS_COLORS:'ow=30;42:'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t default || tmux new-session -s default
+fi
