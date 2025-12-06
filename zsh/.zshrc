@@ -75,6 +75,10 @@ function hr() {
   pkill hyprpaper
   hyprpaper & disown
 }
+
+function zath() {
+  zathura "$@" & disown
+}
 #<<<---------------    FUNCTIONS    ---------------------
 
 
