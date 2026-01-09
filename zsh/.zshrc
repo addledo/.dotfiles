@@ -79,6 +79,15 @@ function hr() {
 function zath() {
   zathura "$@" & disown
 }
+
+function pw() {
+  powershell.exe -F "$@"
+}
+
+function cmd() {
+  cmd.exe /C "$@"
+}
+
 #<<<---------------    FUNCTIONS    ---------------------
 
 
