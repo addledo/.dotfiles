@@ -18,5 +18,4 @@
     plus-non-emph-style = "syntax #24283b"
 
     minus-style = "syntax dim #6a2f41"
-    minus-emph-style = "syntax #2f3549"
     minus-non-emph-style = "syntax #24283b"
