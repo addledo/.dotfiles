@@ -1,0 +1,22 @@
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    features = vibrant-rg-cb
+    side-by-side = true
+
+[merge]
+    conflictStyle = zdiff3
+
+[delta "vibrant-rg-cb"]
+    plus-style = "syntax #0b3d1f"
+    plus-emph-style = "syntax #0f4a26"
+    plus-non-emph-style = "syntax #24283b"
+
+    minus-style = "syntax dim #6a2f41"
+    minus-emph-style = "syntax #2f3549"
+    minus-non-emph-style = "syntax #24283b"
