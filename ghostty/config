@@ -48,5 +48,5 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = TokyoNight Moon
+theme = Gruvbox Material
 font-size = 14
