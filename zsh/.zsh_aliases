@@ -1,3 +1,9 @@
+alias reload='source $XDG_CONFIG_HOME/zsh/.zshrc'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 alias sudo='sudo '
 alias lock='i3lock -uti /home/jonty/Pictures/Lockscreen'
 
