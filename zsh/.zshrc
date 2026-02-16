@@ -65,14 +65,20 @@ function y() {
   rm -f -- "$tmp"
 }
 
-# Fuzzyfind repo and cd
+# Fuzzyfind in repo and cd
+# (s)earch (r)epo
 function sr() {
-  if git rev-parse; then
-    cd $(find . -type d -not -path './.git/*' | fzf)
-  else
+  if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     echo "Not in a git repo"
     return 1
   fi
+  local repo="$(git rev-parse --show-toplevel)"
+  local dir="$(find "$repo" -type d -not -path '*/.git/*' | fzf)"
+  if [[ -z $dir ]]; then
+    # No directory chosen
+    return 0
+  fi
+  cd "$dir"
 }
 
 function dfiles() {
