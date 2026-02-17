@@ -18,6 +18,37 @@ function y {
 }
 
 
+# Fuzzy-find a directory in the current git repo and cd into it
+# (s)earch (r)epo
+# converted from zsh with ChatGPT
+function sr {
+  git rev-parse --is-inside-work-tree *> $null
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "Not in a git repo"
+    return
+  }
+
+  $repo = (git rev-parse --show-toplevel).Trim()
+  $github = Join-Path $repo ".github"
+
+  # All repo dirs, excluding:
+  # - anything under .git
+  # - anything under .github (we'll add back only its top-level dirs)
+  $repoDirs = fd --type d --hidden --exclude .git --exclude '.github/*' . $repo
+
+  # Only directories directly under .github (depth 1), if .github exists
+  $githubTopDirs = @()
+  if (Test-Path -LiteralPath $github) {
+    $githubTopDirs = fd --type d --max-depth 1 . $github 2>$null
+  }
+
+  $dir = ($repoDirs + $githubTopDirs) | Sort-Object -Unique | fzf
+  if ([string]::IsNullOrWhiteSpace($dir)) { return }
+
+  Set-Location -- $dir.Trim()
+}
+
+
 # # Make cd work like in linux
 # Not needed for PowerShell 7
 # del alias:cd -Force # Remove builtin cd alias to Set-Location
@@ -36,6 +67,7 @@ function y {
 # }
 
 function vi { & nvim $args }
+function lg { & lazygit $args }
 
 function gs { & git status -- $args }
 del alias:gm -Force # Remove builtin gm alias to Get-Member
@@ -47,5 +79,4 @@ function yeet { & git push }
 
 function prof { & nvim $profile }
 
-function sd {}
 function root { & cd (git rev-parse --show-toplevel) }
