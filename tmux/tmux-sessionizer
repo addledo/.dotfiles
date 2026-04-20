@@ -1,21 +1,17 @@
-#==================================================================================
-# Copied from THE PRIMEAGEN
-#==================================================================================
-
-
 #!/usr/bin/env bash
-PANE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-sessionizer"
-PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
+
 
 # Configure paths here ==========================
 TS_SEARCH_PATHS=(~/ ~/dev)
 # ===============================================
 
-# # The number prefix is the depth for the Path [OPTIONAL]
-# TS_EXTRA_SEARCH_PATHS=(~/ghq:3 ~/Git:3 ~/.config:2)
 
 # # if set this override the TS_MAX_DEPTH (1)
 # TS_MAX_DEPTH=2
+
+PANE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-sessionizer"
+PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
+
 
 if [[ $TS_LOG != "true" ]]; then
     if [[ -z $TS_LOG_FILE ]]; then
@@ -187,16 +183,6 @@ cleanup_dead_panes() {
 
 sanity_check
 
-# if TS_SEARCH_PATHS is not set use default
-[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/)
-
-# Add any extra search paths to the TS_SEARCH_PATHS array
-# e.g : EXTRA_SEARCH_PATHS=("$HOME/extra1:4" "$HOME/extra2")
-# note : Path can be suffixed with :number to limit or extend the depth of the search for the Path
-
-if [[ ${#TS_EXTRA_SEARCH_PATHS[@]} -gt 0 ]]; then
-    TS_SEARCH_PATHS+=("${TS_EXTRA_SEARCH_PATHS[@]}")
-fi
 
 # utility function to find directories
 find_dirs() {
