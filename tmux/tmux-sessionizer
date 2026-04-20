@@ -4,45 +4,18 @@
 
 
 #!/usr/bin/env bash
-CONFIG_FILE_NAME="tmux-sessionizer.conf"
-CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-sessionizer"
-CONFIG_FILE="$CONFIG_DIR/$CONFIG_FILE_NAME"
 PANE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-sessionizer"
 PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 
-# config file example
-# ------------------------
-# # file: ~/.config/tmux-sessionizer/tmux-sessionizer.conf
-# # If set this override the default TS_SEARCH_PATHS (~/ ~/personal ~/personal/dev/env/.config)
-# TS_SEARCH_PATHS=(~/)
-# # If set this add additional search paths to the default TS_SEARCH_PATHS
+# Configure paths here ==========================
+TS_SEARCH_PATHS=(~/ ~/dev)
+# ===============================================
+
 # # The number prefix is the depth for the Path [OPTIONAL]
 # TS_EXTRA_SEARCH_PATHS=(~/ghq:3 ~/Git:3 ~/.config:2)
+
 # # if set this override the TS_MAX_DEPTH (1)
 # TS_MAX_DEPTH=2
-# This is not meant to override .tmux-sessionizer.  At first i thought this
-# would be a good command, but i don't think its ackshually what i want.
-#
-# Instead, its a list of commands to run on windows who's index is way outside
-# of the first 10 windows.  This allows you to create as many windows in your
-# session as you would like without having your workflow interrupted by these
-# programatic windows
-#
-# how to use:
-# tmux-sessionizer -w 0 will execute the first command in window -t 69.
-# TS_SESSION_COMMANDS=(<cmd1> <cmd2>)
-#
-# TS_LOG=true # will write logs to ~/.local/share/tmux-sessionizer/tmux-sessionizer.logs
-# TS_LOG_FILE=<file> # will write logs to <file> Defaults to ~/.local/share/tmux-sessionizer/tmux-sessionizer.logs
-# ------------------------
-
-if [[ -f "$CONFIG_FILE" ]]; then
-    source "$CONFIG_FILE"
-fi
-
-if [[ -f "$CONFIG_FILE_NAME" ]]; then
-    source "$CONFIG_FILE_NAME"
-fi
 
 if [[ $TS_LOG != "true" ]]; then
     if [[ -z $TS_LOG_FILE ]]; then
@@ -215,7 +188,7 @@ cleanup_dead_panes() {
 sanity_check
 
 # if TS_SEARCH_PATHS is not set use default
-[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/ ~/personal ~/personal/dev/env/.config)
+[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/)
 
 # Add any extra search paths to the TS_SEARCH_PATHS array
 # e.g : EXTRA_SEARCH_PATHS=("$HOME/extra1:4" "$HOME/extra2")
