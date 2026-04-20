@@ -4,6 +4,9 @@ export SUDO_EDITOR="nvim"
 # Source aliases
 source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
+# Source cargo environment
+. "/opt/cargo/env"
+
 # Moved to /etc/profile :
 #export PATH="/home/jonty/.local/bin:$PATH"
 
