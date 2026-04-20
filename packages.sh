@@ -2,6 +2,7 @@ packages=(
   # zathura
   # zathura-pdf-mupdf
   #neofetch
+  lazygit
   base-devel
   brightnessctl
   btop
