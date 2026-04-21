@@ -48,23 +48,46 @@ function sr {
   Set-Location -- $dir.Trim()
 }
 
+# Function to switch branches with tab completion
+function co
+{
+    param(
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [ArgumentCompleter({
+            param($pCmd, $pParam, $pWord, $pAst, $pFakes)
 
-# # Make cd work like in linux
-# Not needed for PowerShell 7
-# del alias:cd -Force # Remove builtin cd alias to Set-Location
-# function cd {
-# 	$pwd = Get-Location
-# 	# No args goes to home directory
-# 	if ($args.Count -eq 0) {
-# 		Set-Location ~
-# 	# '-' as arg goes to previous directory
-# 	} elseif ($args[0] -eq "-") {
-# 		Set-Location @global:OLDPWD
-# 	} else {
-# 		Set-Location @args
-# 	}
-# 	$global:OLDPWD = $pwd
-# }
+            $branchList = (git branch --format='%(refname:short)')
+
+            if ([string]::IsNullOrWhiteSpace($pWord)) {
+                return $branchList;
+            }
+
+            $branchList | Select-String "$pWord"
+        })]
+        [string] $branch
+    )
+
+    git checkout $branch;
+}
+
+# Make cd work like Linux. Already happens in PS7
+if ($PSVersionTable.PSVersion.Major -eq 5) {
+  del alias:cd -Force # Remove builtin cd alias to Set-Location
+  function cd {
+    $pwd = Get-Location
+    # No args goes to home directory
+    if ($args.Count -eq 0) {
+      Set-Location ~
+    # '-' as arg goes to previous directory
+    } elseif ($args[0] -eq "-") {
+      Set-Location @global:OLDPWD
+    } else {
+      Set-Location @args
+    }
+    $global:OLDPWD = $pwd
+  }
+}
 
 function vi { & nvim $args }
 function lg { & lazygit $args }
@@ -79,4 +102,12 @@ function yeet { & git push }
 
 function prof { & nvim $profile }
 
+function sd { & cd Source/Delphi }
 function root { & cd (git rev-parse --show-toplevel) }
+
+# eza aliases
+if (Get-Command eza -ErrorAction SilentlyContinue) {
+  del alias:ls -Force
+  function ls { & eza }
+  function ll { & eza -lh }
+}
