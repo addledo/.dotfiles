@@ -26,7 +26,7 @@ hide_tab_bar_if_only_one_tab = true
 
 -- Set leader key
 -- timeout_milliseconds defaults to 1000 and can be omitted
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 
 config.keys = {
     -- Sessionizer
