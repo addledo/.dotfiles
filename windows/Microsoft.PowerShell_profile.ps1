@@ -108,6 +108,6 @@ function root { & cd (git rev-parse --show-toplevel) }
 # eza aliases
 if (Get-Command eza -ErrorAction SilentlyContinue) {
   del alias:ls -Force
-  function ls { & eza }
-  function ll { & eza -lh }
+  function ls { & eza @args }
+  function ll { & eza -lh @args }
 }
