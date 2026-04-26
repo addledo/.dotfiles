@@ -1,5 +1,6 @@
 #Makes Neovim sudo editor. Use command 'sudoedit'
 export SUDO_EDITOR="nvim"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Source aliases
 source $XDG_CONFIG_HOME/zsh/.zsh_aliases
