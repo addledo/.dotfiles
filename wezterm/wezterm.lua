@@ -12,6 +12,7 @@ wezterm.on("gui-startup", function(cmd)
     window:gui_window():maximize()
 end)
 
+config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 
 config.initial_cols = 120
@@ -30,7 +31,7 @@ config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 
 config.keys = {
     -- Sessionizer
-    { key = "f",  mods = "CTRL",         action = wezterm.action_callback(sessionizer.toggle) },
+    { key = "f",  mods = "LEADER",         action = wezterm.action_callback(sessionizer.toggle) },
 
     -- Fix for harpoon
     { key = ";",  mods = "CTRL",         action = wezterm.action.SendKey({ key = "F13" }) },
