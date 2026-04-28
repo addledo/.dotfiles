@@ -6,10 +6,12 @@ local M = {}
 
 local fd = "fd.exe"
 
+
 -- ============================================================================
 -- SOURCE DIRECTORIES
 -- ============================================================================
 M.source_directories = {
+    "C:/example_dir"
 }
 
 -- ============================================================================
@@ -18,6 +20,7 @@ M.source_directories = {
 M.session_bindings = {
     { key = "N", directory = "~/AppData/Local/nvim" },
 }
+
 
 -- Generate keybindings for quick session switching
 M.get_session_keybindings = function()
@@ -37,8 +40,18 @@ M.get_session_keybindings = function()
 end
 
 
-
 M.toggle = function(window, pane)
+    -- Check for fd find
+    local msg = "fd.exe not found -> winget install sharkdp.fd"
+    local ok, success, _, _ = pcall(function()
+      return wezterm.run_child_process({ fd, "--version" })
+    end)
+    if not ok or not success then
+        window:toast_notification("Wezterm Sessionizer", msg, nil, 2000)
+        return
+    end
+
+
     local projects = {}
 
     for _, source_dir in ipairs(M.source_directories) do
