@@ -1,7 +1,25 @@
 # Init zoxide. Requires installation first.
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+if (Get-Command zoxide -ErrorAction SilentlyContinue) {
+  Invoke-Expression (& { (zoxide init powershell | Out-String) })
+} else {
+  Write-Warning 'Zoxide not found'
+}
+
 # Init starship. Requires installation first.
-Invoke-Expression (&starship init powershell)
+if (Get-Command starship -ErrorAction SilentlyContinue) {
+  Invoke-Expression (&starship init powershell)
+} else {
+  Write-Warning 'Starship not found'
+}
+
+# Replace ls with eza.
+if (Get-Command eza -ErrorAction SilentlyContinue) {
+  del alias:ls -Force
+  function ls { & eza @args }
+  function ll { & eza -lh @args }
+} else {
+  Write-Warning 'eza not found'
+}
 
 # Turn off autocomplete suggestions
 Set-PSReadLineOption -PredictionSource None
@@ -104,10 +122,3 @@ function prof { & nvim $profile }
 
 function sd { & cd Source/Delphi }
 function root { & cd (git rev-parse --show-toplevel) }
-
-# eza aliases
-if (Get-Command eza -ErrorAction SilentlyContinue) {
-  del alias:ls -Force
-  function ls { & eza @args }
-  function ll { & eza -lh @args }
-}
