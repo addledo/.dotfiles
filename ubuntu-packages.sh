@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 packages=(
   eza
   starship
@@ -12,4 +14,4 @@ packages=(
   unzip
 )
 
-sudo apt install -y ${packages[@]}
+sudo apt install -y "${packages[@]}"
