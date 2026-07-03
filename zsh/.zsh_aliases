@@ -68,6 +68,6 @@ alias emu='basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \ 
 # Nav
 alias ..='cd ..'
 alias ...='cd ../..'
-alias -='cd -'
+alias -- -='cd -'
 
 alias root='cd "$(git rev-parse --show-toplevel)"'
