@@ -12,6 +12,7 @@ packages=(
   tmux
   fonts-jetbrains-mono
   unzip
+  tree-sitter-cli
 )
 
 sudo apt install -y "${packages[@]}"
