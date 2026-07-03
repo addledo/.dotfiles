@@ -6,7 +6,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 source $XDG_CONFIG_HOME/zsh/.zsh_aliases
 
 # Source cargo environment
-. "/opt/cargo/env"
+if [[ -f "/opt/cargo/env" ]]; then
+  . "/opt/cargo/env"
+fi
+
+if [[ -x mise ]]; then
+  eval "$(mise activate zsh)"
+fi
 
 # Moved to /etc/profile :
 #export PATH="/home/jonty/.local/bin:$PATH"
