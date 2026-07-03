@@ -66,5 +66,7 @@ alias emu='basename "/"$(ps -o cmd -f -p $(cat /proc/$(echo $$)/stat | cut -d \ 
 #Escaping single quotes in above - '\'' = closing quote, escaped quote, opening quote
 
 # Nav
-alias uu='cd ../..'
-alias uuu='cd ../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias root='cd "$(git rev-parse --show-toplevel)"'
