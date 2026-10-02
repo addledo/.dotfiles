@@ -5,7 +5,7 @@ dirs=(
   # waybar
   tmux
   # hypr
-  zsh
+  zsh/.zshrc
   ghostty
 )
 
@@ -23,7 +23,7 @@ fi
 for dir in "${dirs[@]}"; do
   echo  "$XDG_CONFIG_HOME/$dir"
   if [[ -d "$XDG_CONFIG_HOME/$dir" ]]; then
-    echo "Directory '$dir' already exists, remove and try again"
+    echo "Target '$dir' already exists, remove and try again"
     continue
     # todo:
     # read -rp "$dir exists. Delete? y/N: " choice
@@ -33,6 +33,6 @@ for dir in "${dirs[@]}"; do
   fi
 
   echo "Linking $dir"
-  rm -f "$XDG_CONFIG_HOME/$dir"
+  # rm -f "$XDG_CONFIG_HOME/$dir"
   ln -s "$(realpath "$dir")" "$XDG_CONFIG_HOME/$dir"
 done
