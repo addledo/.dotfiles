@@ -61,15 +61,37 @@
   u   (tap-hold-release $tap-time $hold-time u @win)
   spc (tap-hold-release $tap-time $hold-time spc @sym)
 
-  ;; sym-layer home-row mods (tap = symbol, hold = mod)
-  sym-a (tap-hold-release $tap-time $hold-time S-6   lalt)  ;; ^
-  sym-s (tap-hold-release $tap-time $hold-time =     lctl)  ;; =
-  sym-d (tap-hold-release $tap-time $hold-time S--   lsft)  ;; _
-  sym-g (tap-hold-release $tap-time $hold-time S-8   lmet)  ;; *
-  sym-h (tap-hold-release $tap-time $hold-time S-grv lmet)  ;; ~
-  sym-k (tap-hold-release $tap-time $hold-time S-9   rsft)  ;; (
-  sym-l (tap-hold-release $tap-time $hold-time S-0   rctl)  ;; )
-  sym-; (tap-hold-release $tap-time $hold-time '     ralt)  ;; '
+  ;; sym-layer home-row mods (tap = symbol via layout-independent unicode, hold = mod)
+  sym-a (tap-hold-release $tap-time $hold-time (unicode U+005E) lalt)  ;; ^
+  sym-s (tap-hold-release $tap-time $hold-time (unicode U+003D) lctl)  ;; =
+  sym-d (tap-hold-release $tap-time $hold-time (unicode U+005F) lsft)  ;; _
+  sym-g (tap-hold-release $tap-time $hold-time (unicode U+002A) lmet)  ;; *
+  sym-h (tap-hold-release $tap-time $hold-time (unicode U+007E) lmet)  ;; ~
+  sym-k (tap-hold-release $tap-time $hold-time (unicode U+0028) rsft)  ;; (
+  sym-l (tap-hold-release $tap-time $hold-time (unicode U+0029) rctl)  ;; )
+  sym-; (tap-hold-release $tap-time $hold-time (unicode U+0027) ralt)  ;; apostrophe
+
+  ;; sym-layer plain symbols (layout-independent unicode output)
+  u-hash  (unicode U+0023)  ;; hash
+  u-excl  (unicode U+0021)  ;; !
+  u-grv   (unicode U+0060)  ;; backtick
+  u-pct   (unicode U+0025)  ;; %
+  u-qmrk  (unicode U+003F)  ;; ?
+  u-amp   (unicode U+0026)  ;; &
+  u-plus  (unicode U+002B)  ;; +
+  u-lbrc  (unicode U+007B)  ;; {
+  u-rbrc  (unicode U+007D)  ;; }
+  u-dqt   (unicode U+0022)  ;; double-quote
+  u-dlr   (unicode U+0024)  ;; $
+  u-lt    (unicode U+003C)  ;; <
+  u-pipe  (unicode U+007C)  ;; pipe
+  u-mins  (unicode U+002D)  ;; -
+  u-gt    (unicode U+003E)  ;; >
+  u-pound (unicode U+00A3)  ;; pound
+  u-at    (unicode U+0040)  ;; at
+  u-lbkt  (unicode U+005B)  ;; [
+  u-rbkt  (unicode U+005D)  ;; ]
+  u-scln  (unicode U+003B)  ;; semicolon
 
   ;; win-layer F-key home-row mods (tap = F-key, hold = mod)
   win-k (tap-hold-release $tap-time $hold-time f17 rsft)
@@ -89,9 +111,9 @@
 (deflayer sym
     _    _     _    _    _    _   _     _    _    _    _     _     _
     _    _     _    _    _       _    _    _    _    _       _    _    _
-  _              S-3  S-1  grv  S-5  S-/     S-7  S-=  S-[  S-]  S-'     _    _    _
-  _              @sym-a @sym-s @sym-d S-4 @sym-g  @sym-h -   @sym-k @sym-l @sym-;  _  _
-  _      _       S-,  S-\  -    S-.  A-3     S-2  spc  [    ]    ;       _
+  _              @u-hash @u-excl @u-grv @u-pct @u-qmrk  @u-amp @u-plus @u-lbrc @u-rbrc @u-dqt  _  _  _
+  _              @sym-a @sym-s @sym-d @u-dlr @sym-g  @sym-h @u-mins @sym-k @sym-l @sym-;  _  _
+  _      _       @u-lt @u-pipe @u-mins @u-gt @u-pound  @u-at spc @u-lbkt @u-rbkt @u-scln  _
          _    _    _             _              _    _
 )
 
