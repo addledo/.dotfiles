@@ -1,0 +1,127 @@
+;; kanata config for the MacBook internal keyboard.
+;; Mirrors the Ferris Sweep (ferris-sweep-config) where the laptop layout allows.
+;;
+;; Layers:
+;;   base     - alpha + home-row mods
+;;   sym      - symbols            (hold space)
+;;   nav      - cursor navigation  (hold f / j)
+;;   win      - F13-F21 for AeroSpace, numpad layout (hold r / u)
+;;   fn       - mac media keys / function row (hold fn)
+;;
+;; Home-row mods (both base and sym), matching the Ferris:
+;;   left   a=alt  s=ctrl d=shift      g=gui
+;;   right  h=gui         k=shift l=ctrl ;=alt
+;;
+;; The win layer emits F13-F20, which the AeroSpace config binds to
+;; workspaces 1-8 (bare = switch, shift = move window). F21 (numpad 9)
+;; is emitted but AeroSpace caps at f20, so it is currently unbound.
+
+(defcfg
+;; Set to no if you only use the keys defined in defsrc.
+  process-unmapped-keys yes
+)
+
+(defsrc
+    fn  f1    f2   f3   f4   f5  f6    f7   f8   f9   f10   f11   f12
+    1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret
+  caps           a    s    d    f    g       h    j    k    l    ;       '    \
+  lsft   `       z    x    c    v    b       n    m    ,    .    /       rsft
+         lctl lalt lmet          spc            rmet ralt
+)
+
+(defvar
+  streak-count 3
+  streak-time 325
+  tap-time 210
+  hold-time 210
+  chord-timeout 50
+)
+
+(defalias
+  nav (layer-while-held nav)
+  win (layer-while-held win)
+  sym (layer-while-held sym)
+  fnl (tap-hold 200 200 fn (layer-toggle fn))
+
+  ;; base home-row mods (tap = letter, hold = mod / layer)
+  a (tap-hold-release $tap-time $hold-time a lalt)
+  s (tap-hold-release $tap-time $hold-time s lctl)
+  d (tap-hold-release $tap-time $hold-time d lsft)
+  g (tap-hold-release $tap-time $hold-time g lmet)
+  f (tap-hold-release $tap-time $hold-time f @nav)
+  j (tap-hold-release $tap-time $hold-time j @nav)
+  h (tap-hold-release $tap-time $hold-time h lmet)
+  k (tap-hold-release $tap-time $hold-time k rsft)
+  l (tap-hold-release $tap-time $hold-time l rctl)
+  ; (tap-hold-release $tap-time $hold-time ; ralt)
+
+  ;; layer triggers: r/u -> win, space -> sym
+  r   (tap-hold-release $tap-time $hold-time r @win)
+  u   (tap-hold-release $tap-time $hold-time u @win)
+  spc (tap-hold-release $tap-time $hold-time spc @sym)
+
+  ;; sym-layer home-row mods (tap = symbol, hold = mod)
+  sym-a (tap-hold-release $tap-time $hold-time S-6   lalt)  ;; ^
+  sym-s (tap-hold-release $tap-time $hold-time =     lctl)  ;; =
+  sym-d (tap-hold-release $tap-time $hold-time S--   lsft)  ;; _
+  sym-g (tap-hold-release $tap-time $hold-time S-8   lmet)  ;; *
+  sym-h (tap-hold-release $tap-time $hold-time S-grv lmet)  ;; ~
+  sym-k (tap-hold-release $tap-time $hold-time S-9   rsft)  ;; (
+  sym-l (tap-hold-release $tap-time $hold-time S-0   rctl)  ;; )
+  sym-; (tap-hold-release $tap-time $hold-time '     ralt)  ;; '
+
+  ;; win-layer F-key home-row mods (tap = F-key, hold = mod)
+  win-k (tap-hold-release $tap-time $hold-time f17 rsft)
+  win-l (tap-hold-release $tap-time $hold-time f18 rctl)
+)
+
+(deflayer base
+   @fnl  f1    f2   f3   f4   f5  f6    f7   f8   f9   f10   f11   f12
+    1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    @r   t       y    @u   i    o    p       [    ]    ret
+  repeat         @a   @s   @d   @f   @g      @h   @j   @k   @l   @;      '    \
+  lsft   `       z    x    c    v    b       n    m    ,    .    /       rsft
+         lctl lalt lmet          @spc           ret  ralt
+)
+
+;; symbols — hold space
+(deflayer sym
+    _    _     _    _    _    _   _     _    _    _    _     _     _
+    _    _     _    _    _       _    _    _    _    _       _    _    _
+  _              S-3  S-1  grv  S-5  S-/     S-7  S-=  S-[  S-]  S-'     _    _    _
+  _              @sym-a @sym-s @sym-d S-4 @sym-g  @sym-h -   @sym-k @sym-l @sym-;  _  _
+  _      _       S-,  S-\  -    S-.  A-3     S-2  spc  [    ]    ;       _
+         _    _    _             _              _    _
+)
+
+;; navigation — hold f / j
+(deflayer nav
+    _    _     _    _    _    _   _     _    _    _    _     _     _
+    _    _     _    _    _       _    _    _    _    _       _    _    _
+  _              _    _    _    _    _       _    home pgup end  _       _    _    _
+  _              _    _    del  tab  _       left down up   right _     _    _
+  _      _       caps _    _    _    _       _    A-left pgdn A-right _  _
+         _    _    _             _              _    _
+)
+
+;; aerospace workspaces (F13-F21, numpad) — hold r / u
+(deflayer win
+    _    _     _    _    _    _   _     _    _    _    _     _     _
+    _    _     _    _    _       _    _    _    _    _       _    _    _
+  _              _    _    _    _    _       _    f19  f20  f21  _       _    _    _
+  _              lalt lctl lsft _    lmet    lmet f16  @win-k @win-l ralt _  _
+  _      _       _    _    _    _    _       _    f13  f14  f15  _       _
+         _    _    _             _              _    _
+)
+
+;; mac media keys / function row — hold fn
+;; Some keys are missing: Mission Control, Launchpad, dictation, Do Not Disturb
+(deflayer fn
+    -  brdn  brup  _    _    _    _   prev  pp  next  mute  vold  volu
+    1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret
+  repeat         @a   @s   @d   @f   @g      @h   @j   @k   @l   @;      '    \
+  lsft   `       z    x    c    v    b       n    m    ,    .    /       rsft
+         lctl lalt bspc          spc            ret  ralt
+)
